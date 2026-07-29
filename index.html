@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>Farhan Arif | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563EB",
+              accent: "#0EA5E9",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "DM Sans", sans-serif;
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+        overflow-x: hidden;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Animasi Menu Mobile */
+      #mobile-menu {
+        transition: transform 0.3s ease-in-out;
+      }
+    </style>
+  </head>
+  <body
+    class="antialiased bg-white text-gray-900 dark:bg-[#0B0F1A] dark:text-gray-100"
+  >
+    <!-- 1. NAVIGASI -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-white/90 dark:bg-[#0B0F1A]/90 backdrop-blur-md border-b border-gray-100 dark:border-slate-800 transition-colors"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between"
+      >
+        <div class="text-xl font-bold tracking-tighter dark:text-white">
+          Farhan<span class="text-accent">.</span>
+        </div>
+
+        <div
+          class="hidden md:flex items-center space-x-10 text-[15px] font-medium text-gray-600 dark:text-gray-400"
+        >
+          <a
+            href="#beranda"
+            class="hover:text-primary dark:hover:text-white transition-colors"
+            >Beranda</a
+          >
+          <a
+            href="#tentang"
+            class="hover:text-primary dark:hover:text-white transition-colors"
+            >Tentang</a
+          >
+          <a
+            href="#proyek"
+            class="hover:text-primary dark:hover:text-white transition-colors"
+            >Proyek</a
+          >
+          <a
+            href="#keahlian"
+            class="hover:text-primary dark:hover:text-white transition-colors"
+            >Keahlian</a
+          >
+          <button
+            onclick="toggleDarkMode()"
+            class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-accent transition-all"
+          >
+            <i
+              data-lucide="sun"
+              class="w-5 h-5 hidden dark:block text-yellow-400"
+            ></i>
+            <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+          </button>
+          <a
+            href="#kontak"
+            class="bg-primary text-white px-6 py-2.5 rounded-full hover:bg-blue-700 transition-all font-bold shadow-lg shadow-blue-500/20"
+            >Hubungi Saya</a
+          >
+        </div>
+
+        <div class="flex items-center space-x-4 md:hidden">
+          <button
+            onclick="toggleDarkMode()"
+            class="p-2 text-gray-600 dark:text-accent"
+          >
+            <i
+              data-lucide="sun"
+              class="w-6 h-6 hidden dark:block text-yellow-400"
+            ></i>
+            <i data-lucide="moon" class="w-6 h-6 block dark:hidden"></i>
+          </button>
+          <button id="menu-open" class="p-2 text-gray-900 dark:text-white">
+            <i data-lucide="menu" class="w-7 h-7"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      id="mobile-menu"
+      class="fixed inset-0 z-[60] bg-white dark:bg-[#0B0F1A] translate-x-full md:hidden flex flex-col p-8"
+    >
+      <div class="flex justify-between items-center mb-12">
+        <div class="text-xl font-bold dark:text-white">
+          Farhan<span class="text-accent">.</span>
+        </div>
+        <button id="menu-close" class="p-2 text-gray-900 dark:text-white">
+          <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+      </div>
+      <div class="flex flex-col space-y-8 text-2xl font-bold">
+        <a href="#beranda" class="mobile-link">Beranda</a>
+        <a href="#tentang" class="mobile-link">Tentang</a>
+        <a href="#proyek" class="mobile-link">Proyek</a>
+        <a href="#keahlian" class="mobile-link">Keahlian</a>
+        <a
+          href="#kontak"
+          class="mobile-link text-primary pt-8 border-t border-gray-100 dark:border-slate-800"
+          >Hubungi Saya</a
+        >
+      </div>
+    </div>
+
+    <!-- 2. BERANDA -->
+    <section
+      id="beranda"
+      class="pt-32 pb-20 md:pt-48 md:pb-32 px-6 md:px-8 dark:bg-slate-950 transition-colors text-left overflow-hidden"
+    >
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+      >
+        <div class="reveal">
+          <h1
+            class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight md:leading-[1.15] mb-8 tracking-tight text-gray-900 dark:text-white"
+          >
+            <span class="text-accent">Fresh Graduate in Information System</span
+            ><br />
+            <span>Passionate about UI/UX Design</span>
+          </h1>
+          <p
+            class="text-base md:text-xl text-gray-500 dark:text-gray-400 leading-relaxed mb-10 max-w-[540px]"
+          >
+            Saya menciptakan pengalaman digital yang intuitif dan fungsional
+            dengan memahami kebutuhan pengguna secara mendalam.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="#kontak"
+              class="w-full md:w-auto text-center bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 shadow-lg shadow-blue-500/20"
+            >
+              <i data-lucide="mail" class="w-5 h-5"></i> Hubungi Saya
+            </a>
+            <a 
+              href="https://drive.google.com/uc?export=download&id=11bSC4aarLOqxcbfAaV2N7bEgU3amdOTi" 
+              class="w-full md:w-auto text-center border border-gray-200 dark:border-slate-800 text-slate-900 dark:text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 hover:bg-gray-50 dark:hover:bg-slate-900 transition-all"
+            >
+              <i data-lucide="download" class="w-5 h-5"></i>
+              Unduh CV
+            </a>
+          </div>
+        </div>
+
+        <!-- Frame Foto Bulat (Responsive) -->
+        <div
+          class="reveal flex justify-center md:justify-end relative mt-12 md:mt-0"
+        >
+          <div
+            class="absolute inset-0 bg-primary/20 rounded-full blur-[60px] md:blur-[100px] animate-pulse"
+          ></div>
+          <!-- w-56 di HP, w-[420px] di Desktop -->
+          <div
+            class="relative z-10 w-56 h-56 md:w-[420px] md:h-[420px] p-1.5 md:p-2 rounded-full bg-gradient-to-tr from-primary to-accent shadow-2xl transition-transform hover:scale-105 duration-500"
+          >
+            <div
+              class="w-full h-full rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 border-4 border-white dark:border-[#0B0F1A]"
+            >
+              <img
+                src="Farhan.png"
+                alt="Farhan Arif Widodo"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. TENTANG SAYA-->
+    <section
+      id="tentang"
+      class="py-24 md:py-32 px-6 md:px-8 bg-gray-50 dark:bg-[#0B0F1A] border-y border-gray-100 dark:border-slate-800 transition-colors"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-24 reveal">
+          <h2
+            class="text-3xl md:text-5xl font-bold mb-10 tracking-tight text-gray-900 dark:text-white"
+          >
+            Tentang <span class="text-primary">Saya</span>
+          </h2>
+          <p
+            class="text-gray-500 dark:text-gray-400 text-base md:text-xl leading-relaxed max-w-5xl mx-auto"
+          >
+            Saya adalah lulusan Sistem Informasi dengan spesialisasi mendalam
+            dalam UI/UX Design. Saya memiliki kemampuan analitis yang kuat untuk
+            membedah data bisnis yang kompleks dan menerjemahkannya ke dalam
+            solusi desain aplikasi seluler yang sangat fungsional.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
+          <div class="reveal">
+            <div class="flex items-center gap-4 mb-10">
+              <div class="h-[1px] w-8 bg-primary"></div>
+              <h3
+                class="text-primary font-bold text-xs uppercase tracking-[0.3em]"
+              >
+                Pendidikan
+              </h3>
+            </div>
+            <div
+              class="relative pl-8 border-l border-gray-200 dark:border-gray-800"
+            >
+              <div
+                class="absolute -left-[5.5px] top-0 w-[11px] h-[11px] rounded-full bg-primary shadow-[0_0_12px_rgba(37,99,235,0.5)]"
+              ></div>
+              <span class="text-gray-900 dark:text-white text-sm font-bold"
+                >2021 — 2025</span
+              >
+              <h4 class="text-xl font-bold mt-2 text-gray-900 dark:text-white">
+                Sistem Informasi
+              </h4>
+              <p class="text-gray-700 dark:text-gray-300 font-medium mb-3">
+                Universitas Gunadarma
+              </p>
+              <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+                Lulus dari Universitas Gunadarma dengan IPK Akhir 3,68.
+              </p>
+            </div>
+          </div>
+
+          <div class="reveal" style="transition-delay: 200ms">
+            <div class="flex items-center gap-4 mb-10">
+              <div class="h-[1px] w-8 bg-primary"></div>
+              <h3
+                class="text-primary font-bold text-xs uppercase tracking-[0.3em]"
+              >
+                Pengalaman
+              </h3>
+            </div>
+            <div
+              class="relative pl-8 border-l border-gray-200 dark:border-gray-800"
+            >
+              <div
+                class="absolute -left-[5.5px] top-0 w-[11px] h-[11px] rounded-full bg-primary shadow-[0_0_12px_rgba(37,99,235,0.5)]"
+              ></div>
+              <div class="flex flex-wrap items-center gap-3 mb-2">
+                <span
+                  class="text-gray-900 dark:text-white text-sm font-bold uppercase tracking-wider"
+                  >Feb 2024 — Jun 2024</span
+                >
+                <span
+                  class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded border border-primary/20"
+                  >Online</span
+                >
+              </div>
+              <h4 class="text-xl font-bold text-gray-900 dark:text-white">
+                Mobile Developer
+              </h4>
+              <p class="text-gray-700 dark:text-gray-300 font-medium mb-3">
+                Bangkit Academy (Google, GoTo, Traveloka)
+              </p>
+              <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+                Berperan dalam pengembangan aplikasi HealthyEat melalui desain
+                UI hingga tahap pengujian.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SECTION PROYEK -->
+    <section
+      id="proyek"
+      class="py-24 md:py-32 px-6 md:px-8 bg-white dark:bg-[#0B0F1A] transition-colors"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="mb-16 reveal">
+          <div class="flex items-center gap-4">
+            <h2
+              class="text-3xl md:text-5xl font-bold dark:text-white tracking-tight"
+            >
+              Proyek
+            </h2>
+            <div
+              class="h-[1px] flex-grow bg-gray-100 dark:bg-slate-800 hidden md:block"
+            ></div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Proyek 1 -->
+          <div
+            class="group reveal bg-gray-50 dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-gray-100 dark:border-slate-800 flex flex-col"
+          >
+            <div class="p-3">
+              <div
+                class="aspect-[4/3] bg-gray-200 dark:bg-slate-800 rounded-[1.5rem] overflow-hidden"
+              >
+                <img
+                  src="Es Teh.png"
+                  class="group-hover:scale-110 transition-transform duration-700 w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div class="p-8 pt-4 flex flex-col flex-grow text-left">
+              <span
+                class="text-[10px] font-bold text-primary uppercase tracking-widest mb-4"
+                >UI/UX Design</span
+              >
+              <h3 class="text-xl font-bold dark:text-white mb-4">
+                Es Teh Soeltan
+              </h3>
+              <p class="mt-auto text-sm text-gray-500 dark:text-gray-400 font-medium leading-relaxed line-clamp-6 break-words">
+                Teks yang sangat panjang sekali pun akan dipotong otomatis menjadi hanya tiga baris saja agar kartu tetap terlihat rapi dan tidak menjadi terlalu panjang ke bawah. hahafsahafdahfdfhdhshdsg sdsfgadajagd adahsadjhafdajhda adagh
+            </p>
+            </div>
+          </div>
+          <!-- Proyek 2 -->
+          <div
+            class="group reveal bg-gray-50 dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-gray-100 dark:border-slate-800 flex flex-col"
+            style="transition-delay: 100ms"
+          >
+            <div class="p-3">
+              <div
+                class="aspect-[4/3] bg-gray-200 dark:bg-slate-800 rounded-[1.5rem] overflow-hidden"
+              >
+                <img
+                  src="Healthyeat.png"
+                  class="group-hover:scale-110 transition-transform duration-700 w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div class="p-8 pt-4 flex flex-col flex-grow text-left">
+              <span
+                class="text-[10px] font-bold text-primary uppercase tracking-widest mb-4"
+                >Mobile App</span
+              >
+              <h3 class="text-xl font-bold dark:text-white mb-4">
+                HealthyEat
+              </h3>
+              <p class="mt-auto text-sm text-gray-500 dark:text-gray-400 font-medium leading-relaxed line-clamp-6 break-words">
+                Teks yang sangat panjang sekali pun akan dipotong otomatis menjadi hanya tiga baris saja agar kartu tetap terlihat rapi dan tidak menjadi terlalu panjang ke bawah. hahafsahafdahfdfhdhshdsg sdsfgadajagd adahsadjhafdajhda adagh
+            </p>
+            </div>
+          </div>
+          <!-- Proyek 3 -->
+          <div
+            class="group reveal bg-gray-50 dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-gray-100 dark:border-slate-800 flex flex-col"
+            style="transition-delay: 200ms"
+          >
+            <div class="p-3">
+              <div
+                class="aspect-[4/3] bg-gray-200 dark:bg-slate-800 rounded-[1.5rem] overflow-hidden"
+              >
+                <img
+                  src="VIU.jpg"
+                  class="group-hover:scale-110 transition-transform duration-700 w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div class="p-8 pt-4 flex flex-col flex-grow text-left">
+              <span
+                class="text-[10px] font-bold text-primary uppercase tracking-widest mb-4"
+                >UI/UX Design</span
+              >
+              <h3 class="text-xl font-bold dark:text-white mb-4">
+                Redesign Viu App
+              </h3>
+              <p class="mt-auto text-sm text-gray-500 dark:text-gray-400 font-medium leading-relaxed line-clamp-6 break-words">
+                Teks yang sangat panjang sekali pun akan dipotong otomatis menjadi hanya tiga baris saja agar kartu tetap terlihat rapi dan tidak menjadi terlalu panjang ke bawah. hahafsahafdahfdfhdhshdsg sdsfgadajagd adahsadjhafdajhda adagh
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. KEAHLIAN -->
+    <section
+      id="keahlian"
+      class="py-24 md:py-32 px-6 md:px-8 bg-gray-50 dark:bg-[#0B0F1A]/50 transition-colors text-center"
+    >
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-3xl md:text-5xl font-bold dark:text-white tracking-tight mb-20"
+        >
+          Keahlian
+        </h2>
+        <div class="grid md:grid-cols-2 gap-16">
+          <div class="reveal">
+            <h3
+              class="text-xl font-bold mb-10 dark:text-white flex flex-col items-center gap-4"
+            >
+              <span
+                class="w-12 h-12 bg-white dark:bg-slate-800 shadow-sm border border-gray-100 dark:border-slate-700 text-primary rounded-2xl flex items-center justify-center"
+              >
+                <i data-lucide="layers"></i>
+              </span>
+              Bidang Keahlian
+            </h3>
+            <div class="flex flex-wrap gap-3 justify-center">
+              <div
+                class="px-5 py-3 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl font-bold text-gray-600 dark:text-gray-400 hover:text-primary hover:border-primary transition-all shadow-sm"
+              >
+                UI/UX Design
+              </div>
+              <div
+                class="px-5 py-3 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl font-bold text-gray-600 dark:text-gray-400 hover:text-primary hover:border-primary transition-all shadow-sm"
+              >
+                HTML/CSS
+              </div>
+              <div
+                class="px-5 py-3 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl font-bold text-gray-600 dark:text-gray-400 hover:text-primary hover:border-primary transition-all shadow-sm"
+              >
+                Technical Support
+              </div>
+              <div
+                class="px-5 py-3 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl font-bold text-gray-600 dark:text-gray-400 hover:text-primary hover:border-primary transition-all shadow-sm"
+              >
+                Problem Solving
+              </div>
+              <div
+                class="px-5 py-3 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl font-bold text-gray-600 dark:text-gray-400 hover:text-primary hover:border-primary transition-all shadow-sm"
+              >
+                Design Thinking
+              </div>
+              <div
+                class="px-5 py-3 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl font-bold text-gray-600 dark:text-gray-400 hover:text-primary hover:border-primary transition-all shadow-sm"
+              >
+                Teamwork
+              </div>
+              <div
+                class="px-5 py-3 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl font-bold text-gray-600 dark:text-gray-400 hover:text-primary hover:border-primary transition-all shadow-sm"
+              >
+                Interface Design
+              </div>
+            </div>
+          </div>
+          <div class="reveal" style="transition-delay: 200ms">
+            <h3
+              class="text-xl font-bold mb-10 dark:text-white flex flex-col items-center gap-4"
+            >
+              <span
+                class="w-12 h-12 bg-white dark:bg-slate-800 shadow-sm border border-gray-100 dark:border-slate-700 text-accent rounded-2xl flex items-center justify-center"
+              >
+                <i data-lucide="cpu"></i>
+              </span>
+              Software
+            </h3>
+            <div class="flex flex-wrap gap-3 justify-center">
+              <div
+                class="px-5 py-3 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl font-bold text-gray-600 dark:text-gray-400 hover:text-accent hover:border-accent transition-all shadow-sm"
+              >
+                Figma
+              </div>
+              <div
+                class="px-5 py-3 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl font-bold text-gray-600 dark:text-gray-400 hover:text-accent hover:border-accent transition-all shadow-sm"
+              >
+                Canva
+              </div>
+              <div
+                class="px-5 py-3 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl font-bold text-gray-600 dark:text-gray-400 hover:text-accent hover:border-accent transition-all shadow-sm"
+              >
+                Microsoft Office
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. KONTAK -->
+    <section
+      id="kontak"
+      class="py-24 md:py-32 px-6 md:px-8 bg-white dark:bg-[#0B0F1A] transition-colors"
+    >
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16 reveal text-center">
+          <h2
+            class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+          >
+            Kontak
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+          <div class="space-y-8 reveal text-left">
+            <a
+              href="https://www.linkedin.com/in/farhanarfwdd"
+              target="_blank"
+              class="flex items-center gap-5 group hover:bg-blue-50 dark:hover:bg-slate-900 p-4 -ml-4 rounded-2xl transition-all"
+            >
+              <div
+                class="text-primary dark:text-accent group-hover:scale-110 transition-transform"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold dark:text-white">Linkedin</h3>
+                <p class="text-gray-500 text-sm">farhanarfwdd</p>
+              </div>
+            </a>
+            <a
+              href="mailto:farhanarifwidodo@gmail.com"
+              class="flex items-center gap-5 group hover:bg-blue-50 dark:hover:bg-slate-900 p-4 -ml-4 rounded-2xl transition-all"
+            >
+              <div
+                class="text-primary dark:text-accent group-hover:scale-110 transition-transform"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold dark:text-white">Email</h3>
+                <p class="text-gray-500 text-sm">farhanarifwidodo@gmail.com</p>
+              </div>
+            </a>
+          </div>
+
+            <div class="reveal" style="transition-delay: 200ms;">
+        <form action="https://formspree.io/f/meeynvdj" method="POST" class="space-y-5 text-left">
+        
+            <div class="space-y-2">
+                <label class="text-base font-bold text-gray-700 dark:text-gray-300 ml-1">Nama</label>
+                <input type="text" name="name" required placeholder="Nama Anda" 
+                    class="w-full p-4 bg-blue-50 dark:bg-slate-900 rounded-2xl focus:ring-2 ring-primary outline-none transition-all dark:text-white border-none">
+            </div>
+
+            <div class="space-y-2">
+                <label class="text-base font-bold text-gray-700 dark:text-gray-300 ml-1">Email</label>
+                <input type="email" name="email" required placeholder="Alamat email Anda" 
+                 class="w-full p-4 bg-blue-50 dark:bg-slate-900 rounded-2xl focus:ring-2 ring-primary outline-none transition-all dark:text-white border-none">
+            </div>
+
+            <div class="space-y-2">
+                <label class="text-base font-bold text-gray-700 dark:text-gray-300 ml-1">Pesan</label>
+                <textarea name="message" rows="4" required placeholder="Tuliskan pesan Anda" 
+                    class="w-full p-4 bg-blue-50 dark:bg-slate-900 rounded-2xl focus:ring-2 ring-primary outline-none transition-all dark:text-white border-none"></textarea>
+            </div>
+
+         <button type="submit" 
+                class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-500/20 transition-all flex items-center justify-center gap-2">
+                Kirim Pesan <i data-lucide="send" class="w-5 h-5"></i>
+            </button>
+        </form>
+    </div>
+    </section>
+
+    <footer
+      class="py-12 border-t border-gray-100 dark:border-slate-800 text-center text-gray-400 text-sm"
+    >
+      © 2026 Farhan Arif Widodo | Portfolio
+    </footer>
+
+    <script>
+      lucide.createIcons();
+
+      const menuOpen = document.getElementById("menu-open");
+      const menuClose = document.getElementById("menu-close");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
+
+      menuOpen.onclick = () => mobileMenu.classList.remove("translate-x-full");
+      menuClose.onclick = () => mobileMenu.classList.add("translate-x-full");
+      mobileLinks.forEach(
+        (link) =>
+          (link.onclick = () => mobileMenu.classList.add("translate-x-full")),
+      );
+
+      function toggleDarkMode() {
+        const html = document.documentElement;
+        html.classList.toggle("dark");
+        localStorage.setItem(
+          "theme",
+          html.classList.contains("dark") ? "dark" : "light",
+        );
+      }
+      if (localStorage.getItem("theme") === "dark")
+        document.documentElement.classList.add("dark");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("active");
+          });
+        },
+        { threshold: 0.1 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
